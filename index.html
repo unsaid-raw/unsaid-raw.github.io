@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024 - 2025</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .anatomical-heart {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,0,0,0)); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 8px rgba(255, 46, 68, 0.4)); }
+        }
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        .music-player {
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+        .music-player:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="anatomical-heart">🫀</div>
+        <p class="bio-text">
+            i was just silent because it was too heavy, the feelings i have for you weren't enough to be said with words, but with actions.
+        </p>
+        <div class="music-player">
+            <iframe style="border-radius:12px" 
+                src="https://spotify.com" 
+                width="100%" 
+                height="152" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+</body>
+</html>
