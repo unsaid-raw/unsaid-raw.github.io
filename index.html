@@ -10,39 +10,78 @@
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 40px;
             box-sizing: border-box;
-            text-align: center;
+            overflow: hidden;
+            position: relative;
         }
+
+        /* 🫀 THE HOLOGRAM BACKGROUND ENGINE */
+        .hologram-bg {
+            position: absolute;
+            right: -5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 65vh;
+            height: 65vh;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 100 100'%3E%3Cpath d='M50,90 C50,90 20,65 20,40 C20,22 34,13 45,22 C48,25 50,28 50,28 C50,28 52,25 55,22 C66,13 80,22 80,40 C80,65 50,90 50,90 Z' fill='none' stroke='%238b0000' stroke-width='1.5' stroke-dasharray='2,2'/%3E%3Cpath d='M46,27 C40,32 35,42 38,55 M54,27 C60,32 65,42 62,55 M44,40 C46,45 54,45 56,40 M50,28 L50,85' fill='none' stroke='%23660000' stroke-width='1' stroke-dasharray='1,2'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: faintPulse 4s infinite ease-in-out;
+        }
+
+        @keyframes faintPulse {
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.12; filter: drop-shadow(0 0 5px rgba(139, 0, 0, 0.2)); }
+            50% { transform: translateY(-50%) scale(1.03); opacity: 0.22; filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.5)); }
+        }
+
         .container {
-            max-width: 600px;
+            max-width: 550px;
+            z-index: 2;
+            position: relative;
+            text-align: left;
+            padding-left: 20px;
         }
-        .anatomical-heart {
-            font-size: 3rem;
-            margin-bottom: 25px;
-            display: inline-block;
-            animation: pulse 2s infinite ease-in-out;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,0,0,0)); }
-            50% { transform: scale(1.08); filter: drop-shadow(0 0 8px rgba(255, 46, 68, 0.4)); }
-        }
+
         .bio-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            letter-spacing: 0.5px;
+            font-size: 1.15rem;
+            line-height: 1.9;
+            letter-spacing: 0.8px;
             font-weight: 300;
-            opacity: 0.9;
-            margin-bottom: 40px;
+            opacity: 0.95;
+            margin-bottom: 45px;
+            color: #e0e0e0;
         }
+
+        /* 🌊 THE COMING OUT PARTICLES LOOP */
+        .dots-extension {
+            display: inline-block;
+            position: relative;
+            color: #8b0000;
+            font-weight: 400;
+            letter-spacing: 4px;
+            animation: streamOut 2s infinite linear;
+        }
+
+        @keyframes streamOut {
+            0% { opacity: 0.3; text-shadow: 0 0 0px rgba(255,0,0,0); }
+            50% { opacity: 1; color: #ff2e44; text-shadow: 0 0 8px rgba(255, 46, 68, 0.8); }
+            100% { opacity: 0.3; text-shadow: 0 0 0px rgba(255,0,0,0); }
+        }
+
         .music-player {
-            opacity: 0.4;
-            transition: opacity 0.3s ease;
+            opacity: 0.25;
+            transition: opacity 0.4s ease;
+            width: 100%;
+            max-width: 300px;
         }
         .music-player:hover {
             opacity: 0.8;
@@ -51,16 +90,20 @@
 </head>
 <body>
 
+    <!-- The Massive Holographic Organ Sidebar -->
+    <div class="hologram-bg"></div>
+
     <div class="container">
-        <div class="anatomical-heart">🫀</div>
         <p class="bio-text">
-            i was just silent because it was too heavy, the feelings i have for you weren't enough to be said with words, but with actions.
+            i was just silent because it was too heavy, the feelings i have for you weren't enough to be said with words, but with actions<span class="dots-extension">...</span>
         </p>
+
+        <!-- Compact Spotify Player for Omar Apollo's Evergreen -->
         <div class="music-player">
             <iframe style="border-radius:12px" 
                 src="https://spotify.com" 
                 width="100%" 
-                height="152" 
+                height="80" 
                 frameBorder="0" 
                 allowfullscreen="" 
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
